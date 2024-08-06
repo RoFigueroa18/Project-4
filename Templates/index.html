@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Car Price Predictor</a>
+    </nav>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Enter Your Car Details</h2>
+        <form action="/predict" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="Brand">Brand:</label>
+                <select class="form-control" name="Brand" required>
+                    <option value="Honda">Honda</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Tesla">Tesla</option>
+                    <option value="Bugatti">Bugatti</option>
+                    <option value="Lamborghini">Lamborghini</option>
+                    <option value="Porsche">Porsche</option>
+                    <option value="Ferrari">Ferrari</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Chevrolet">Chevrolet</option>
+                    <!-- Include other relevant brands here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Fuel.Type">Fuel Type:</label>
+                <select class="form-control" name="Fuel.Type" required>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="Gasoline">Gasoline</option>
+                    <!-- Include other fuel types here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Body.Type">Body Type:</label>
+                <select class="form-control" name="Body.Type" required>
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Convertible">Convertible</option>
+                    <option value="Hatchback">Hatchback</option>
+                    <option value="Pickup">Pickup</option>
+                    <!-- Include other body types here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Gearbox.Type">Gearbox Type:</label>
+                <select class="form-control" name="Gearbox.Type" required>
+                    <option value="Manual">Manual</option>
+                    <option value="Automatic">Automatic</option>
+                    <option value="CVT">CVT</option>
+                    <option value="Dual-Clutch">Dual-Clutch</option>
+                    <!-- Include other gearbox types here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Drivetrain">Drivetrain:</label>
+                <select class="form-control" name="Drivetrain" required>
+                    <option value="FWD">FWD</option>
+                    <option value="RWD">RWD</option>
+                    <option value="AWD">AWD</option>
+                    <option value="4WD">4WD</option>
+                    <option value="Unknown">Unknown</option>
+                    <!-- Include other drivetrain types here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Engine.Type">Engine Type:</label>
+                <select class="form-control" name="Engine.Type" required>
+                    <option value="Inline-4">Inline-4</option>
+                    <option value="Inline-6">Inline-6</option>
+                    <option value="V8">V8</option>
+                    <option value="V12">V12</option>
+                    <option value="Electric">Electric</option>
+                    <option value="Hybrid">Hybrid</option>
+                    <option value="8.0-liter W16 Gas">8.0-liter W16 Gas</option>
+                    <option value="3.8L Twin-Turbo V8 Gas">3.8L Twin-Turbo V8 Gas</option>
+                    <option value="4.4L Twin-Turbo V8 Gas">4.4L Twin-Turbo V8 Gas</option>
+                    <option value="6.5L V12 Gas">6.5L V12 Gas</option>
+                    <!-- Include other engine types here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Model.Number">Model Number:</label>
+                <input type="text" class="form-control" name="Model.Number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Power.hp">Power (hp):</label>
+                <input type="number" class="form-control" name="Power.hp" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Torque.lbft">Torque (lb-ft):</label>
+                <input type="number" class="form-control" name="Torque.lbft" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Seats">Seats:</label>
+                <input type="number" class="form-control" name="Seats" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Doors">Doors:</label>
+                <input type="number" class="form-control" name="Doors" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Height.in">Height (in):</label>
+                <input type="number" class="form-control" name="Height.in" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Length.in">Length (in):</label>
+                <input type="number" class="form-control" name="Length.in" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Width.in">Width (in):</label>
+                <input type="number" class="form-control" name="Width.in" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="MPG.City">MPG City:</label>
+                <input type="number" class="form-control" name="MPG.City" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="MPG.Highway">MPG Highway:</label>
+                <input type="number" class="form-control" name="MPG.Highway" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Bottle.Holder">Bottle Holder:</label>
+                <select class="form-control" name="Bottle.Holder" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <!-- Additional input fields -->
+            <div class="form-group">
+                <label for="Tyre.Pressure.Monitor">Tyre Pressure Monitor:</label>
+                <select class="form-control" name="Tyre.Pressure.Monitor" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Cassette.Player">Cassette Player:</label>
+                <select class="form-control" name="Cassette.Player" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Heater">Heater:</label>
+                <select class="form-control" name="Heater" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Electric.Adjustable.Seats">Electric Adjustable Seats:</label>
+                <select class="form-control" name="Electric.Adjustable.Seats" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Central.Locking">Central Locking:</label>
+                <select class="form-control" name="Central.Locking" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Power.Steering">Power Steering:</label>
+                <select class="form-control" name="Power.Steering" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Halogen.Headlamps">Halogen Headlamps:</label>
+                <select class="form-control" name="Halogen.Headlamps" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Seat.Belt.Warning">Seat Belt Warning:</label>
+                <select class="form-control" name="Seat.Belt.Warning" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Adjustable.Seats">Adjustable Seats:</label>
+                <select class="form-control" name="Adjustable.Seats" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Power.Door.Locks">Power Door Locks:</label>
+                <select class="form-control" name="Power.Door.Locks" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Height.Adjustable.Driving.Seat">Height Adjustable Driving Seat:</label>
+                <select class="form-control" name="Height.Adjustable.Driving.Seat" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Vehicle.Stability.Control.System">Vehicle Stability Control System:</label>
+                <select class="form-control" name="Vehicle.Stability.Control.System" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Clearance.in">Clearance (in):</label>
+                <input type="number" class="form-control" name="Clearance.in" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Speakers.Front...back">Speakers Front/Back:</label>
+                <select class="form-control" name="Speakers.Front...back" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Smart.Access.Card.Entry">Smart Access Card Entry:</label>
+                <select class="form-control" name="Smart.Access.Card.Entry" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Power.Windows">Power Windows:</label>
+                <select class="form-control" name="Power.Windows" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Fog.Lights.Front...Back">Fog Lights Front/Back:</label>
+                <select class="form-control" name="Fog.Lights.Front...Back" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="DVD.Player">DVD Player:</label>
+                <select class="form-control" name="DVD.Player" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Xenon.Headlamps">Xenon Headlamps:</label>
+                <select class="form-control" name="Xenon.Headlamps" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Centrally.Mounted.Fuel.Tank">Centrally Mounted Fuel Tank:</label>
+                <select class="form-control" name="Centrally.Mounted.Fuel.Tank" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Electric.Folding.Rear.View.Mirror">Electric Folding Rear View Mirror:</label>
+                <select class="form-control" name="Electric.Folding.Rear.View.Mirror" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Rear.Reading.Lamp">Rear Reading Lamp:</label>
+                <select class="form-control" name="Rear.Reading.Lamp" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Keyless.Entry">Keyless Entry:</label>
+                <select class="form-control" name="Keyless.Entry" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Adjustable.Steering.Column">Adjustable Steering Column:</label>
+                <select class="form-control" name="Adjustable.Steering.Column" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="CD.Player">CD Player:</label>
+                <select class="form-control" name="CD.Player" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Central.Locking.1">Central Locking:</label>
+                <select class="form-control" name="Central.Locking.1" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Smoke.Headlamps">Smoke Headlamps:</label>
+                <select class="form-control" name="Smoke.Headlamps" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Digital.Clock">Digital Clock:</label>
+                <select class="form-control" name="Digital.Clock" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Brake.Assist">Brake Assist:</label>
+                <select class="form-control" name="Brake.Assist" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Engine.Check.Warning">Engine Check Warning:</label>
+                <select class="form-control" name="Engine.Check.Warning" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Engine.Check.Warning">Engine Check Warning:</label>
+                <select class="form-control" name="Engine.Check.Warning" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Rear.Camera">Rear Camera:</label>
+                <select class="form-control" name="Rear.Camera" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Automatic.Climate.Control">Automatic Climate Control:</label>
+                <select class="form-control" name="Automatic.Climate.Control" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Night.Rear.View.Mirror">Night Rear View Mirror:</label>
+                <select class="form-control" name="Night.Rear.View.Mirror" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Anti.Theft.Device">Anti-Theft Device:</label>
+                <select class="form-control" name="Anti.Theft.Device" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Parking.Sensors">Parking Sensors:</label>
+                <select class="form-control" name="Parking.Sensors" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Touch.Screen">Touch Screen:</label>
+                <select class="form-control" name="Touch.Screen" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Outside.Temperature.Display">Outside Temperature Display:</label>
+                <select class="form-control" name="Outside.Temperature.Display" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Cylinders">Cylinders:</label>
+                <select class="form-control" name="Cylinders" required>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                    <option value="12">12</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Displacement.l">Displacement (L):</label>
+                <input type="number" class="form-control" name="Displacement.l" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Rear.Seat.Belts">Rear Seat Belts:</label>
+                <select class="form-control" name="Rear.Seat.Belts" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Door.Ajar.Warning">Door Ajar Warning:</label>
+                <select class="form-control" name="Door.Ajar.Warning" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Radio">Radio:</label>
+                <select class="form-control" name="Radio" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Anti.Lock.Braking">Anti-Lock Braking:</label>
+                <select class="form-control" name="Anti.Lock.Braking" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Air.Conditioner">Air Conditioner:</label>
+                <select class="form-control" name="Air.Conditioner" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Removable.Convertible.Top">Removable Convertible Top:</label>
+                <select class="form-control" name="Removable.Convertible.Top" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Audio.System.Remote.Control">Audio System Remote Control:</label>
+                <select class="form-control" name="Audio.System.Remote.Control" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="AntiLock.Braking.System">Anti-Lock Braking System:</label>
+                <select class="form-control" name="AntiLock.Braking.System" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="USB...Auxiliary.Input">USB/Auxiliary Input:</label>
+                <select class="form-control" name="USB...Auxiliary.Input" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Engine.Immobilizer">Engine Immobilizer:</label>
+                <select class="form-control" name="Engine.Immobilizer" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Bluetooth.Connectivity">Bluetooth Connectivity:</label>
+                <select class="form-control" name="Bluetooth.Connectivity" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Wheelbase.in">Wheelbase (in):</label>
+                <input type="number" class="form-control" name="Wheelbase.in" step="any" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Crash.Sensor">Crash Sensor:</label>
+                <select class="form-control" name="Crash.Sensor" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Low.Fuel.Warning.Light">Low Fuel Warning Light:</label>
+                <select class="form-control" name="Low.Fuel.Warning.Light" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Voice.Control">Voice Control:</label>
+                <select class="form-control" name="Voice.Control" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Leather.Seats">Leather Seats:</label>
+                <select class="form-control" name="Leather.Seats" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Child.Safety.Locks">Child Safety Locks:</label>
+                <select class="form-control" name="Child.Safety.Locks" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mt-4">Predict Price</button>
+        </form>
+    </div>
+
+    <footer class="footer bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <span>&copy; 2024 Car Price Predictor. All rights reserved.</span>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
