@@ -15,7 +15,7 @@ This model utilizes a dataset containing the following features: Price, Year, Mi
 - GitHub
 
 ### Database Tools
-- SQL
+- SQLlite
 
 ### Programming Languages
 - HTML
@@ -42,6 +42,7 @@ This model utilizes a dataset containing the following features: Price, Year, Mi
 5. **Define and Train the Voting Regressor with Weighted Models**
 6. **Price Prediction Example**
 7. **Test Prediction with 3 Cars Over 5 Years**
+8. Remember for the app to run the HTML locally 
 
 
 ## Usage Instructions
