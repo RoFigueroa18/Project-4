@@ -60,6 +60,10 @@ This is why this dataset was chosen.
 ## Database Information
 The dataset was obtained from the following page: [Kaggle Dataset](https://www.kaggle.com/datasets/tymekurban/new-cars-usa-202223-dataset). The dataset is free to use, run, and modify.
 
+## Tableau 
+Complete Tableau project can be found on the following URL. This task was performed by the team mentioned in the Authors section:
+https://public.tableau.com/views/FinalProject_17229013835720/Story1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+
 ## Authors
 - **Daniel Bardán** (@Wynton0535)
 - **Rodrigo Figueroa** (@RoFigueroa18)
